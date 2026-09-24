@@ -1,0 +1,6 @@
+services:
+  - type: worker
+    name: xs-outfit-bot
+    env: python
+    buildCommand: pip install python-telegram-bot==21.10
+    startCommand: python bot.py
