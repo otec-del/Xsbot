@@ -1,0 +1,149 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>XS OUTFIT</title><script src="https://telegram.org"></script><style>
+:root{--bg:#f9f9fc;--c-bg:#fff;--txt:#111;--hnt:#8e8e93;--prm:#000;--prm-t:#fff;}body{font-family:-apple-system,Arial,sans-serif;background:var(--bg);color:var(--txt);margin:0;padding:70px 16px 30px 16px;-webkit-user-select:none;}
+header{position:fixed;top:0;left:0;right:0;height:60px;background:var(--c-bg);display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid rgba(0,0,0,0.05);z-index:100;box-sizing:border-box;}
+.h-l{display:flex;align-items:center;}.m-t{font-size:24px;background:none;border:none;color:var(--txt);cursor:pointer;margin-right:15px;padding:0;}header h1{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin:0;}
+.c-b{background:none;border:none;position:relative;cursor:pointer;font-size:22px;padding:5px;display:flex;align-items:center;}
+.badge{position:absolute;top:-2px;right:-2px;background:#d32f2f;color:#fff;font-size:10px;font-weight:bold;border-radius:50%;min-width:16px;height:16px;display:none;align-items:center;justify-content:center;padding:2px;box-sizing:border-box;}
+.sb{position:fixed;top:0;left:-280px;width:270px;height:100%;background:var(--c-bg);box-shadow:4px 0 16px rgba(0,0,0,0.1);z-index:200;transition:left 0.3s ease;display:flex;flex-direction:column;box-sizing:border-box;}
+.sb.open{left:0;}.sb-h{display:flex;justify-content:space-between;align-items:center;padding:15px;border-bottom:1px solid rgba(0,0,0,0.05);}.c-m{font-size:22px;background:none;border:none;color:var(--txt);cursor:pointer;}
+.p-card{background:var(--prm);color:var(--prm-t);margin:15px 12px 10px 12px;padding:14px 12px;border-radius:14px;display:flex;align-items:center;gap:12px;cursor:pointer;}
+.m-av{width:46px;height:46px;border-radius:50%;overflow:hidden;background:var(--c-bg);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.av-img{width:100%;height:100%;object-fit:cover;display:none;}.av-fb{color:var(--prm);font-size:18px;font-weight:800;}
+.u-inf{display:flex;flex-direction:column;gap:1px;min-width:0;}.u-nm{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.u-vp{font-size:11px;opacity:0.6;text-transform:uppercase;}.nav{padding:5px 10px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;flex:1;}
+.n-btn{width:100%;padding:12px 15px;font-size:14px;font-weight:700;text-align:left;border:none;background:transparent;color:var(--txt);border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.n-btn.active{background:rgba(0,0,0,0.04);border-left:4px solid var(--prm);border-radius:0 8px 8px 0;}
+.sub{display:none;flex-direction:column;gap:2px;padding-left:15px;margin:2px 0 5px 0;}.sub.open{display:flex;}
+.s-btn{width:100%;padding:10px 15px;font-size:13px;font-weight:600;text-align:left;border:none;background:transparent;color:var(--hnt);cursor:pointer;}
+.s-btn.active{color:var(--txt);font-weight:700;background:rgba(0,0,0,0.03);border-radius:6px;}
+.page{display:none;}.page.active{display:block;}
+.w-blk{background:var(--c-bg);border-radius:16px;padding:24px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.04);margin-top:10px;}
+.w-logo{font-size:42px;font-weight:900;text-transform:uppercase;color:var(--txt);margin-bottom:5px;}
+.w-txt{font-size:14px;line-height:1.6;color:var(--hnt);margin:0 0 20px 0;}
+.go-btn{width:100%;max-width:200px;padding:12px;background:var(--prm);color:var(--prm-t);border:none;border-radius:10px;font-size:14px;font-weight:bold;cursor:pointer;}
+.grid-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.card{background:var(--c-bg);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;cursor:pointer;}
+.img-w{width:100%;height:140px;background:rgba(0,0,0,0.02);display:flex;align-items:center;justify-content:center;font-size:50px;}
+.inf-w{padding:10px;display:flex;flex-direction:column;gap:4px;}
+.title{font-size:14px;font-weight:700;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.price{font-size:14px;font-weight:800;color:var(--txt);}
+.inf-c{background:var(--c-bg);padding:16px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.02);margin-bottom:12px;line-height:1.5;font-size:14px;}
+.p-details{background:var(--c-bg);border-radius:16px;padding:16px;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+.slider{display:flex;overflow-x:auto;gap:10px;padding-bottom:10px;scroll-snap-type:x mandatory;}.slider::-webkit-scrollbar{display:none;}
+.slide-img{flex:0 0 100%;height:200px;background:rgba(0,0,0,0.02);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:70px;scroll-snap-align:start;}
+.sz-box{display:flex;gap:6px;margin:10px 0;}
+.sz-b{padding:8px 14px;font-size:13px;font-weight:bold;border:1px solid #e0e0e0;background:transparent;color:var(--txt);border-radius:8px;cursor:pointer;}
+.sz-b.active{background:var(--prm);color:var(--prm-t);border-color:var(--prm);}
+.act-btn{width:100%;padding:14px;background:var(--prm);color:var(--prm-t);border:none;border-radius:10px;font-size:14px;font-weight:bold;cursor:pointer;margin-top:15px;}
+.cart-sheet{position:fixed;bottom:-100%;left:0;right:0;background:var(--c-bg);border-radius:20px 20px 0 0;box-shadow:0 -5px 25px rgba(0,0,0,0.1);z-index:300;transition:bottom 0.3s ease;padding:20px;max-height:70%;overflow-y:auto;box-sizing:border-box;}
+.cart-sheet.open{bottom:0;}.c-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee;}
+.qty-box{display:flex;align-items:center;gap:10px;}.qty-btn{width:28px;height:28px;border-radius:50%;border:1px solid #ccc;background:none;font-weight:bold;cursor:pointer;}
+</style></head><body>
+<header><div class="h-l"><button class="m-t" onclick="tM(1)">☰</button><h1 id="header-title">XS OUTFIT</h1></div><button class="c-b" onclick="tC(1)">🛒<div class="badge" id="c-bdg">0</div></button></header>
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:150;display:none;" id="ovr" onclick="tM(0);tC(0);"></div>
+<div class="sb" id="sb"><div class="sb-h"><div style="font-size:16px;font-weight:800;">XS НАВИГАЦИЯ</div><button class="c-m" onclick="tM(0)">✕</button></div>
+<div class="p-card" onclick="sP('profile',this)"><div class="m-av"><img class="av-img" id="m-av-img" src="" alt="av"><div class="av-fb" id="m-av-txt">U</div></div><div class="u-inf"><div class="u-nm" id="m-unm">Покупатель</div><div class="u-vp">Личный кабинет</div></div></div>
+<div class="nav"><button class="n-btn active" id="m-n-b" onclick="sP('main',this)">🏠 Главная</button><button class="n-btn" onclick="tS('s-cat',this)">🛍️ Каталог <span>▼</span></button>
+<div class="sub" id="s-cat"><button class="s-btn" id="s-all" onclick="sCC('all',this)">⚡ Все товары</button><button class="s-btn" onclick="sCC('out',this)">🧥 Верхняя одежда</button><button class="s-btn" onclick="sCC('tsh',this)">👕 Футболки</button></div>
+<button class="n-btn" onclick="oSp()">💬 Поддержка</button><button class="n-btn" onclick="tS('s-oth',this)">⚙️ Остальное <span>▼</span></button>
+<div class="sub" id="s-oth"><button class="s-btn" onclick="sP('about',this)">ℹ️ О магазине</button></div></div></div>
+<div class="page active" id="p-main"><div class="w-blk"><div class="w-logo">XS OUTFIT</div><div style="font-size:20px;font-weight:700;margin-bottom:10px;" id="w-tl">Добро пожаловать!</div><p class="w-txt">Концептуальный премиум-магазин мужской одежды.</p><button class="go-btn" onclick="goC()">В каталог ➔</button></div></div>
+<div class="page" id="p-shop"><div class="grid-list" id="catalog"></div></div>
+<div class="page" id="p-detail"><div class="p-details" id="product-detail-view"></div></div>
+<div class="page" id="p-profile"><div style="font-size:16px;font-weight:800;margin:15px 0 12px 0;">АККАУНТ</div><div class="inf-c"><b style="font-size:16px;" id="p-fn">Покупатель</b><div style="font-size:13px;color:var(--hnt);margin-top:5px;" id="p-id">ID: Не определен</div></div><div style="font-size:16px;font-weight:800;margin:25px 0 12px 0;">ИСТОРИЯ ПОКУПОК</div><div class="inf-c" id="o-hist">У вас пока нет оформленных заказов.</div></div>
+<div class="page" id="p-about"><div style="font-size:16px;font-weight:800;margin:15px 0 12px 0;">О МАГАЗИНЕ XS</div><div class="inf-c"><b>XS OUTFIT</b> — пространство стиля.<br><br>📦 <b>Доставка:</b> СДЭК, Почта России.</div></div>
+<div class="cart-sheet" id="cart-sheet"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;"><div style="font-size:18px;font-weight:bold;">Корзина</div><button class="c-m" onclick="tC(0)">✕</button></div><div id="cart-items-list"></div></div>
+<script>
+const tg=window.Telegram?.WebApp||{MainButton:{show(){},hide(){},setText(){}},onEvent(){},close(){}};if(window.Telegram?.WebApp){tg.ready();tg.expand();}
+const products=[
+    {id:'o1',cat:'out',emojis:['🧥','✨','👑'],title:'Шерстяное Пальто',price:12500,sizes:['M','L','XL'],desc:'Премиальное шерстяное пальто итальянского кроя.'},
+    {id:'o2',cat:'out',emojis:['🧥','🔥','💨'],title:'Осенний Бомбер',price:7900,sizes:['S','M','L'],desc:'Стильный оверсайз бомбер с водозащитой.'},
+    {id:'t1',cat:'tsh',emojis:['👕','🖤','⚡'],title:'Черная Футболка',price:1900,sizes:['S','M','L'],desc:'Плотная футболка из 100% хлопка.'},
+    {id:'t2',cat:'tsh',emojis:['👕','🤍','🌿'],title:'Белая Футболка',price:2400,sizes:['M','L','XL'],desc:'Свободная уличная посадка.'}
+];
+let cart={},selectedSizes={},currentCat='all';products.forEach(p=>{selectedSizes[p.id]=p.sizes[0];});
+const user=tg.initDataUnsafe?.user;if(user){
+    const fn=user.first_name||"",ln=user.last_name||"";
+    document.getElementById('w-tl').innerText=`Привет, ${fn}!`;document.getElementById('m-unm').innerText=fn;
+    document.getElementById('p-fn').innerText=(fn+" "+ln).trim();if(user.id)document.getElementById('p-id').innerText="ID: "+user.id;
+    const ai=document.getElementById('m-av-img'),at=document.getElementById('m-av-txt');
+    if(fn){ai.src=`https://dicebear.com{encodeURIComponent(fn)}&backgroundColor=000000&textColor=ffffff`;ai.style.display='block';at.style.display='none';}
+}
+function tM(o){document.getElementById('sb').style.left=o?'0':'-280px';document.getElementById('ovr').style.display=o?'block':'none';}
+function tC(o){
+    if(o&&Object.keys(cart).length===0){tg.showAlert("Корзина пуста!");return;}
+    document.getElementById('cart-sheet').style.bottom=o?'0':'-100%';document.getElementById('ovr').style.display=o?'block':'none';
+    if(o){renderCartItems();tg.MainButton.show();}else{uB();}
+}
+function tS(id,el){document.getElementById(id).classList.toggle('open');const a=el.querySelector('span');if(a)a.innerText=document.getElementById(id).classList.contains('open')?'▲':'▼';}
+function sP(pId,el){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.n-btn,.s-btn,.p-card').forEach(b=>b.classList.remove('active'));
+    document.getElementById('p-'+pId).classList.add('active');if(el)el.classList.add('active');
+    const tls={main:'XS OUTFIT',shop:'Каталог',about:'О магазине',profile:'Профиль',detail:'Товар'};
+    document.getElementById('header-title').innerText=tls[pId]||'XS OUTFIT';
+    if(pId==='shop'||pId==='detail'||pId==='main') uB();else tg.MainButton.hide();tM(0);
+}
+function sCC(c,el){currentCat=c;sP('shop',null);if(el)el.classList.add('active');render();}
+function goC(){document.getElementById('s-cat').classList.add('open');sCC('all',document.getElementById('s-all'));}
+function render(){
+    const cat=document.getElementById('catalog');cat.innerHTML='';
+    products.forEach(p=>{
+        if(currentCat!=='all'&&p.cat!==currentCat)return;
+        cat.innerHTML+=`<div class="card" onclick="openDetails('${p.id}')"><div class="img-w">${p.emojis[0]}</div><div class="inf-w"><div class="title">${p.title}</div><div class="price">${p.price.toLocaleString()} ₽</div></div></div>`;
+    });
+}
+function openDetails(id){
+    const p=products.find(x=>x.id===id);sP('detail',null);
+    let sH='';p.sizes.forEach(s=>{const aCls=selectedSizes[p.id]===s?'active':'';sH+=`<button class="sz-b ${aCls}" onclick="selS('${p.id}','${s}')">${s}</button>`;});
+    let imgs='';p.emojis.forEach(e=>{imgs+=`<div class="slide-img">${e}</div>`;});
+    const cKey=`${id}_${selectedSizes[p.id]}`,isIn=cart[cKey],bTxt=isIn?'Убрать из корзины':'Добавить в корзину';
+    document.getElementById('product-detail-view').innerHTML=`
+        <div class="slider">${imgs}</div><div style="font-size:11px;color:var(--hnt);text-align:center;margin-bottom:10px;">⬅️ Свайп для просмотра фото ➡️</div>
+        <div style="font-size:20px;font-weight:bold;margin-bottom:5px;">${p.title}</div><div style="font-size:16px;font-weight:800;color:#2481cc;margin-bottom:15px;">${p.price.toLocaleString()} ₽</div>
+        <div style="font-size:13px;font-weight:bold;margin-bottom:5px;">Размер:</div><div class="sz-box">${sH}</div>
+        <div style="font-size:13px;font-weight:bold;margin:15px 0 5px 0;">Описание:</div><p style="font-size:13px;color:#555;line-height:1.4;margin:0;">${p.desc}</p>
+        <button class="act-btn" onclick="tglDetails('${p.id}')">${bTxt}</button>
+    `;
+}
+function selS(id,s){selectedSizes[id]=s;openDetails(id);}
+function tglDetails(id){
+    const p=products.find(x=>x.id===id),sz=selectedSizes[id],cKey=`${id}_${sz}`;
+    if(cart[cKey]){delete cart[cKey];}else{cart[cKey]={id:id,name:p.title,price:p.price,size:sz,qty:1};}
+    openDetails(id);uB();
+}
+function renderCartItems(){
+    const list=document.getElementById('cart-items-list');list.innerHTML='';
+    Object.keys(cart).forEach(k=>{
+        const c=cart[k];
+        list.innerHTML+=`<div class="c-item"><div><b>${c.name}</b> (${c.size})<br><span style="color:#2481cc;">${c.price.toLocaleString()} ₽</span></div>
+        <div class="qty-box"><button class="qty-btn" onclick="chgQ('${k}',-1)">-</button><span>${c.qty}</span><button class="qty-btn" onclick="chgQ('${k}',1)">+</button></div></div>`;
+    });
+}
+function chgQ(k,d){
+    cart[k].qty+=d;if(cart[k].qty<=0)delete cart[k];
+    renderCartItems();uB();if(Object.keys(cart).length===0)tC(0);
+}
+function uB(){
+    const keys=Object.keys(cart),bdg=document.getElementById('c-bdg');let totalQty=0,sum=0;
+    keys.forEach(k=>{totalQty+=cart[k].qty;sum+=(cart[k].price*cart[k].qty);});
+    bdg.style.display=totalQty===0?'none':'flex';bdg.innerText=totalQty;
+    if(totalQty===0){tg.MainButton.hide();if(document.getElementById('cart-sheet').style.bottom==='0px')tC(0);}
+    else{tg.MainButton.setText("Оформить заказ на "+sum.toLocaleString()+" ₽");if(document.getElementById('p-shop').classList.contains('active')||document.getElementById('p-detail').classList.contains('active')||document.getElementById('cart-sheet').style.bottom==='0px')tg.MainButton.show();else tg.MainButton.hide();}
+}
+function sOL(t){let o=JSON.parse(localStorage.getItem('xs_o')||"[]");o.unshift({d:new Date().toLocaleDateString(),t:t});localStorage.setItem('xs_o',JSON.stringify(o));lH();}
+function lH(){
+    let o=JSON.parse(localStorage.getItem('xs_o')||"[]");
+    if(o.length>0){let h="";o.forEach(x=>{h+=`<div style="margin-bottom:10px;padding-bottom:5px;border-bottom:1px dashed #eee;"><b>${x.d}</b><br>${x.t.replace(/\n/g,'<br>')}</div>`;});document.getElementById('o-hist').innerHTML=h;}
+}
+function oSp(){tg.openTelegramLink("https://t.me");tM(0);}
+tg.onEvent('mainButtonClicked',function(){
+    if(document.getElementById('cart-sheet').style.bottom!=='-100%'&&document.getElementById('cart-sheet').style.bottom!==''){
+        let txt="",sum=0;Object.keys(cart).forEach(k=>{const c=cart[k];txt+=`▪️ ${c.name} (${c.size}) — ${c.qty} шт. х ${c.price.toLocaleString()} ₽\n`;sum+=(c.price*c.qty);});
+        let f=`${txt}\nИтого: ${sum.toLocaleString()} ₽`;sOL(f);tg.sendData("👔 Новый заказ [XS OUTFIT]:\n\n"+f);tg.close();
+    }else{tC(1);}
+});
+render();lH();
+</script></body></html>
+
+
